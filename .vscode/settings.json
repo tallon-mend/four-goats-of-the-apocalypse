@@ -1,0 +1,4 @@
+{
+    "dotnet.preferCSharpExtension": true,
+    "java.compile.nullAnalysis.mode": "automatic"
+}
