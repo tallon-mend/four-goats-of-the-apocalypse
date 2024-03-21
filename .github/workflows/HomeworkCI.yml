@@ -37,9 +37,17 @@ jobs:
           echo "Verifying the CLI"
           mend version
           
-      - name: Building the Project
-        run: |
-          echo testing gg 
+      - name: Build PIP
+        run: pip install
+     
+      - name: Build Nuget
+        run: nuget install
+
+      - name: Build Maven
+        run: mvn clean install
+
+      - name: Build NPM
+        run: npm install
 
       # Runs a set of commands using the runners shell
       - name: Running CLI
@@ -47,6 +55,7 @@ jobs:
           MEND_URL: ${{ secrets.MEND_URL }}
           MEND_USER_KEY: ${{ secrets.MEND_USER_KEY }}
           MEND_EMAIL: ${{ secrets.MEND_EMAIL }}
+          MEND_LOG_LEVEL: "DEBUG"
           PROJ_NAME: ${{ github.event.repository.name }}
         run: |
              mend dep --update --scope "GitActions//$PROJ_NAME" --non-interactive -e
