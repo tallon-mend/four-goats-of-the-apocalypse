@@ -35,9 +35,15 @@ jobs:
       # Runs a single command using the runners shell
       - name: Downloading CLI Client
         run: |
-          echo "Downlaoding the CLI"
+          echo "Downloading the CLI"
           curl "https://downloads.mend.io/cli/linux_amd64/mend" -o /usr/local/bin/mend && chmod +x /usr/local/bin/mend
-      
+     
+      - name: Verify Scanner and Echo VARs
+        run: |
+          echo "$PROJ_NAME"
+          echo "Verifying the CLI"
+          mend version
+          
       - name: Building the Project
         run: |
           echo testing 
