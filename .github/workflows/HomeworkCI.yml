@@ -50,12 +50,12 @@ jobs:
           PROJ_NAME: ${{ github.event.repository.name }}
         run: |
              mend dep --update --scope "GitActions//$PROJ_NAME" --non-interactive -e
-             continue
-             
+        continue-on-error: true
+        
       - name: Printing CLI logs
         run: |
          cat ~/.mend/logs/sca/*
          
-        continue-on-error: true
+        
           
           
