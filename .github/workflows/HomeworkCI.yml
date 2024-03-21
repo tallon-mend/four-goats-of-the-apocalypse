@@ -49,6 +49,13 @@ jobs:
           MEND_EMAIL: ${{ secrets.MEND_EMAIL }}
           PROJ_NAME: ${{ github.event.repository.name }}
         run: |
-             echo "$MEND_EMAIL, $MEND_USER_KEY"
              mend dep --update --scope "GitActions//$PROJ_NAME" --non-interactive -e
+             continue
+             
+      - name: Printing CLI logs
+        run: |
+         cat ~/.mend/logs/sca/*
+         
+        continue-on-error: true
+          
           
