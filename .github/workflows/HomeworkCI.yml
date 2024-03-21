@@ -39,7 +39,7 @@ jobs:
           
       - name: Building the Project
         run: |
-          echo testing 
+          echo testing gg 
 
       # Runs a set of commands using the runners shell
       - name: Running CLI
